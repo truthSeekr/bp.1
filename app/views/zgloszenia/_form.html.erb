@@ -1,0 +1,21 @@
+<%= simple_form_for(@zgloszenium) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :imie %>
+    <%= f.input :nazwisko %>
+    <%= f.input :miasto %>
+    <%= f.input :adres %>
+    <%= f.input :telefon %>
+    <%= f.input :email %>
+    <%= f.input :data_urodzenia %>
+    <%= f.input :wiadomosc %>
+    <%= f.input :zaliczka %>
+    <%= f.input :oplacony %>
+    <%= f.association :kurs %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

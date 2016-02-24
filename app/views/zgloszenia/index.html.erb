@@ -1,0 +1,45 @@
+<h1>Listing zgloszenia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Miasto</th>
+      <th>Adres</th>
+      <th>Telefon</th>
+      <th>Email</th>
+      <th>Data urodzenia</th>
+      <th>Wiadomosc</th>
+      <th>Zaliczka</th>
+      <th>Oplacony</th>
+      <th>Kurs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zgloszenia.each do |zgloszenium| %>
+      <tr>
+        <td><%= zgloszenium.imie %></td>
+        <td><%= zgloszenium.nazwisko %></td>
+        <td><%= zgloszenium.miasto %></td>
+        <td><%= zgloszenium.adres %></td>
+        <td><%= zgloszenium.telefon %></td>
+        <td><%= zgloszenium.email %></td>
+        <td><%= zgloszenium.data_urodzenia %></td>
+        <td><%= zgloszenium.wiadomosc %></td>
+        <td><%= zgloszenium.zaliczka %></td>
+        <td><%= zgloszenium.oplacony %></td>
+        <td><%= zgloszenium.kurs %></td>
+        <td><%= link_to 'Show', zgloszenium %></td>
+        <td><%= link_to 'Edit', edit_zgloszenium_path(zgloszenium) %></td>
+        <td><%= link_to 'Destroy', zgloszenium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zgloszenium', new_zgloszenium_path %>
