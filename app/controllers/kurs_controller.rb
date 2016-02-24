@@ -1,5 +1,5 @@
 class KursController < ApplicationController
-  before_action :set_kur, only: [:show, :edit, :update, :destroy]
+  before_action :set_kur, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /kurs
   # GET /kurs.json
