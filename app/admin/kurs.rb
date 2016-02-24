@@ -1,4 +1,5 @@
 ActiveAdmin.register Kurs do
+  permit_params :nazwa, :termin, :miejsce, :opis
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
