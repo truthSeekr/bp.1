@@ -1,21 +1,70 @@
-<%= simple_form_for(@zgloszenium) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :imie %>
-    <%= f.input :nazwisko %>
-    <%= f.input :miasto %>
-    <%= f.input :adres %>
-    <%= f.input :telefon %>
-    <%= f.input :email %>
-    <%= f.input :data_urodzenia %>
-    <%= f.input :wiadomosc %>
-    <%= f.input :zaliczka %>
-    <%= f.input :oplacony %>
-    <%= f.association :kurs %>
+<%= form_for @zgloszenia, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :imie, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :imie, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nazwisko, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nazwisko, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :miasto, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :miasto, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :adres, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :adres, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefon, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :telefon, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :email, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_urodzenia, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :data_urodzenia, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :wiadomosc, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :wiadomosc, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :zaliczka, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :zaliczka, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :oplacony, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :oplacony, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  zgloszenia_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

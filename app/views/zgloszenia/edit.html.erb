@@ -1,6 +1,5 @@
-<h1>Editing zgloszenium</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @zgloszenium %> |
-<%= link_to 'Back', zgloszenia_path %>
+<%- model_class = Zgloszenia -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Zgloszenia %></h1>
+</div>
+<%= render :partial => 'form' %>
