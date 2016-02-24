@@ -1,31 +1,42 @@
-<h1>Listing kurs</h1>
-
-<table>
+<%- model_class = Kurs -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Kurs %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nazwa</th>
-      <th>Termin</th>
-      <th>Miejsce</th>
-      <th>Opis</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:nazwa) %></th>
+      <th><%= model_class.human_attribute_name(:termin) %></th>
+      <th><%= model_class.human_attribute_name(:miejsce) %></th>
+      <th><%= model_class.human_attribute_name(:opis) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @kurs.each do |kur| %>
+    <% @kurs.each do |kurs| %>
       <tr>
-        <td><%= kur.nazwa %></td>
-        <td><%= kur.termin %></td>
-        <td><%= kur.miejsce %></td>
-        <td><%= kur.opis %></td>
-        <td><%= link_to 'Show', kur %></td>
-        <td><%= link_to 'Edit', edit_kur_path(kur) %></td>
-        <td><%= link_to 'Destroy', kur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= kurs.id %></td>
+        <td><%= kurs.nazwa %></td>
+        <td><%= kurs.termin %></td>
+        <td><%= kurs.miejsce %></td>
+        <td><%= kurs.opis %></td>
+        <td><%=l kurs.created_at, format: :long %></td>
+        <td>
+          <%= link_to kurs_path(kurs), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to kurs_path(kurs), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Kur', new_kur_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_kurs_path,
+            :class => 'btn btn-primary' %>
