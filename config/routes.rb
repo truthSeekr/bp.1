@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :kurs
+
   resources :zgloszenia
 
   devise_for :admin_users, ActiveAdmin::Devise.config
